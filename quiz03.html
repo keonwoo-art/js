@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz03.js</title>
+    <script>
+       let div;
+        
+        function change(){
+            div = document.getElementById("div1")
+            
+
+            div.className = div.className === "" ? "back" : "";
+            document.getElementById("btn").innerHTML = document.getElementById("btn").innerHTML === "변경" ? "되돌리기" : "변경";
+
+        }
+    
+        let size = 15;
+        function plus(){
+            div = document.getElementById("div1")
+            size += 3;
+            div.style.fontSize = size + "px";
+
+        }
+        function minus(){
+            div = document.getElementById("div1")
+            size -= 3;
+            div.style.fontSize = size + "px";
+
+        }
+
+        let num = 1
+
+        function prev(){
+            let img = document.getElementById("pic")
+            num = num > 1 ? num - 1 : 8;
+            img.src = `images/최근상품0${num}.jpg`
+        }
+        function next(){
+            let img = document.getElementById("pic")
+            num = num < 8 ? num + 1 : 1;
+            img.src = `images/최근상품0${num}.jpg`
+            
+
+        }
+
+
+    </script>
+    <style>
+        .back {background-color: gold;}
+        #wrap  {width: 150px; height: 150px; text-align: center;}
+        #pic {width: 150px; height: 150px;}
+
+    </style>
+</head>
+<body>
+
+    <div id="wrap">
+        <img src="images/최근상품01.jpg" id="pic">
+        <input type = "button" value="이전사진" onclick="prev()">
+        <input type = "button" value="다음사진" onclick="next()">
+    </div>
+<br> <br> <br>
+    <div id="div1">div</div>
+    <button onclick="change()" id="btn">변경</button>
+    <hr>
+    <button onclick="plus()">+</button>
+    <button onclick="minus()">-</button>
+    
+    <!--
+    <hr>
+    <div id="div1" class="back">div</div>
+    <button onclick="change()" it="btn">되돌리기</button> -->
+    
+</body>
+</html>

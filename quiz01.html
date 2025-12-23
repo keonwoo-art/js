@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz01</title>
+
+    <script>
+
+        function init(){
+
+        let div = document.getElementById("div1");
+        let msg = `<table border ="1">`
+            msg = msg + `<tr>
+                <th>이름</th><th>나이</th><th>주소</th>
+                </tr>
+                `   
+
+        let name = prompt(`당신의 이름은?`);
+        let age = prompt(`${name}님의 나이는?`);
+        let adr = prompt(`${name}님의 주소는?`);
+
+        msg += `
+        <tr>
+            <td>${name}</td>
+            <td>${age}</td>
+            <td>${adr}</td>
+        </tr> `
+
+        msg += `</table>`;
+
+        div.innerHTML = msg;
+
+        }
+
+        
+
+    </script> 
+
+</head>
+<body onload="init()">
+    <div id="div1"></div>
+    
+</body>
+</html>

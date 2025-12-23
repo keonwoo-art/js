@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function init(){
+        
+            let div = document.getElementById("div1")
+            let result;
+            let num = prompt("수를 입력하세요");
+            result = (num % 2 == 0) ? `은 짝수입니다` : `은 홀수입니다`
+            div.innerHTML = `${num}${result} <br>`
+
+            let result2;
+            let num2 = prompt("수를 입력하세요");
+            result2 = num2 % 3 == 0 ? `${num2}은 3의 배수입니다` : `${num2}은 3의 배수가 아닙니다`
+            div.innerHTML += `${result2} <br>`
+
+            let result3;
+            let num3 = prompt(" 첫 번째 수를 입력하세요"); let num4 = prompt("두 번째 수를 입력하세요");
+            result3 = num3 > num4 ? `${num3}가 ${num4}보다 크다` : `${num4}가 ${num3}보다 작지 않다`; 
+            div.innerHTML += result3
+
+        }
+
+        
+
+
+    </script>
+
+
+</head>
+<body onload="init()">
+    <div id="div1"><div></div>
+    
+</body>
+</html>
