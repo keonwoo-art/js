@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz04.js</title>
+    
+    <script>
+
+        function func1(){
+        const a1 = document.getElementById("a1")
+        const a2 = document.getElementById("a2")
+        const result = document.getElementById("result")
+
+        if(a1.value == a2.value){
+            result.style.color="";
+            result.innerHTML="일치합니다!!";
+            
+        }
+
+        if(a1.value !== a2.value){
+            a1.value = "";
+            a2.value = "";
+            result.style.color="red";
+            result.innerHTML ="다시 입력!!";
+            a1.focus();
+        }
+    }
+
+    </script>
+
+</head>
+<body>
+    <input type="text" id="a1" placeholder="비밀번호 입력"><br>
+    <input type="text" id="a2" placeholder="비밀번호 확인"><br>
+    <div id = "result"></div>
+    <button onclick="func1()">클릭</button>
+    
+</body>
+</html>

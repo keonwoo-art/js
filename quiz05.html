@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz05.js</title>
+
+    <script>
+        
+        let id, pwd1, pwd2, div;
+        const saveId="javascript"
+        
+        window.onload = function() {
+            id = document.getElementById("id");
+            pwd1 = document.getElementById("pwd1");
+            pwd2 = document.getElementById("pwd2");
+            div = document.getElementById("div1")
+        }
+
+            function input(){
+                if( id.value == saveId){
+                    div.innerHTML = "존재하는 아이디 입니다."
+                }else if(id.value.length > 3){
+                    div.innerHTML = "가입 가능한 ID입니다."
+                }else{
+                    div.innerHTML = "길이가 짧습니다.(4자 이상)"}
+            }
+            function change(){
+                if(pwd1.value == pwd2.value){
+                    div.innerHTML = "일치합니다."}
+                else{
+                    div.innerHTML = "일치하지 않습니다."
+                    pwd1.focus();
+                    pwd1.value = "";
+                    pwd2.value = "";
+                }
+            }
+        
+            function func1(){
+                if(id.value != saveId && id.value.length > 3 && pwd1.value == pwd2.value && document.getElementById("txt").value != "" && pwd1.value != ""){
+                 document.getElementById("div2").innerHTML = ` id : <b>${id.value} <br></b>
+                 pwd : <b>${pwd1.value} <br></b>
+                 pwd_check : <b>${pwd2.value}</b> <br>
+                 name : <b>${document.getElementById("txt").value}</b>`   
+                }else{ document.getElementById("div2").innerHTML = `다시 확인해주세요.`}
+            }
+    </script>
+
+</head>
+<body>
+    <input type="text" oninput="input()" id="id" placeholder="ID입력"><br>
+    <input type="text" id = "pwd1" placeholder="비밀번호 입력"><br>
+    <input type="text" onchange="change()" id="pwd2" placeholder="비밀번호 확인"><br>
+    <input type="text" id="txt" placeholder="이름">
+    <div id="div1"></div>
+    <button onclick="func1()">가입</button>
+    <div id="div2"></div>
+
+      
+
+
+</body>
+</html>
