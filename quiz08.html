@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz08</title>
+</head>
+ <style>
+     #pic { width: 150px; height: 150px; margin-top: 100px;}
+ </style>
+ <script>
+
+    let x = 0;
+    let txt, s, e;
+    let imageNum = 1;
+
+    function init(){
+        txt = document.getElementById("txt")
+    }
+    
+    function start(){
+            const sTime = new Date();
+            s = sTime.getTime();
+        }
+        function end(){
+            const eTime = new Date();
+            e = eTime.getTime();
+        }
+    document.addEventListener("keydown", func1)
+    function func1 (event){
+        const pic = document.getElementById("pic")
+        switch(event.key){
+            case " " : 
+            imageNum++;
+            pic.src = "images/jol0" + imageNum + ".png"
+            if(imageNum>=3) imageNum=0;
+            x += 10;
+            break;
+        }
+        pic.style.marginLeft = x +"px";
+
+        switch(x){
+        case 100 : txt.innerHTML = "START"; 
+        start();
+        break;
+        case 300 :
+        end();
+        let ttt = (e - s) / 1000;
+        txt.innerHTML= "종료 : " + ttt + "초";
+        break;
+    }
+    }
+
+ </script>
+
+<body onload="init()">
+    <div id="wrap">
+        <div id="txt" style="margin-left : 100px">READY</div>
+    </div>
+    <img src="images/jol01.png" id="pic">
+
+    <script>
+        let div = document.getElementById("txt");
+        let num = 10;
+        let sum = 100;
+
+        //++num; // num = 11
+        // 전치(++num) : 우선시 된다. 제일 먼저 연산
+        // 후치(num++) : 모든 연산이 끝난 후 자기 자신을 증가한다.
+
+        sum = sum + num++; //sum = 110
+        div.innerHTML = sum;
+        
+
+    </script>
+    
+</body>
+</html>

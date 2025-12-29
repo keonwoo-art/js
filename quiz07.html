@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz07</title>
+    <style>
+        #pic { width: 150px; height: 150px; margin-top: 120px;}
+    </style>
+    <script>
+        /*
+        function init(){
+            addEventListener("keydown", kDown);
+        }
+        function kDown(event){
+            console.log(event)
+        } */
+
+       let x = 0;
+        let y = 120;
+        document.addEventListener("keydown", function(e) {
+            const pic = document.getElementById("pic");
+
+            switch(e.key){
+                case "ArrowUp" : y -= 10;
+                break;
+                case "ArrowDown" : y += 10;
+                break;
+                case "ArrowLeft" : x -= 10;
+                break;
+                case "ArrowRight" : x += 10;
+                break;
+            }
+            pic.style.marginLeft = x+"px";
+            pic.style.marginTop = y + "px";
+        })
+        
+    </script>
+</head>
+<body>
+    <img src="images/jo.png" id="pic">
+    
+</body>
+</html>

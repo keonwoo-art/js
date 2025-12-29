@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quia10.js</title>
+    <script>
+        //function init()
+        const init = () => {
+        /*
+        let msg;
+        for(let i = 1 ; i <=8 ; i++){
+            msg += `<tr id="${i}" onclick="trFunc(this)">
+        <td>${i} aaa</td><td>${i} 홍길동</td></tr>`}
+
+        const table = document.getElementById("table")
+        table.innerHTML = `<table border = "1">
+            <tr>
+                <th>아이디</th><th>이름</th>
+            </tr>
+            ${msg}
+        </table>`*/
+    const table = document.getElementById("table")
+    let msg;
+    msg = `<table border = "1" id = "wrap">
+            <tr>
+                <th>아이디</th><th>이름</th>
+            </tr>
+            `;
+            console.log("반복 후 msg : " + msg)
+    for(let i = 1 ; i <=3 ; i++){
+            msg += `
+            <tr id="${i}" onclick="trFunc(this)">
+                <td>${i} aaa</td><td>${i} 홍길동</td>
+            </tr>`}
+
+        console.log("반복 후 msg : " + msg)
+
+        msg += `</table>`
+
+        table.innerHTML = msg
+
+
+    }
+
+    function trFunc(tr){
+           let allTrs = document.querySelectorAll("#wrap tbody tr");
+          
+            switch(tr.style.backgroundColor){
+                case "gold" : tr.style.backgroundColor = "";
+                return;
+            }
+
+           allTrs.forEach(item => {
+            item.style.backgroundColor = "";
+           })
+
+           tr.style.backgroundColor = "gold"
+            }
+
+            
+        
+    </script>
+    
+</head>
+<body onload = init()>
+    <div id = "table"> </div>
+
+    
+
+</body>
+</html>

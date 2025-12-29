@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex14.js</title>
+    <script>
+        const num = 5;
+        let i = 10
+        for( i=1; i < 3 ; i++) //초기화 ; 조건식 ; 증감식
+        {
+            console.log(i+" : 실행??");
+            //break;
+        }
+        console.log(i +" : 다음 문장들 실행");
+
+        i = 1;
+        let sum = 0;
+        
+        for ( sum = 0 ; i < 11 ; i++){
+            sum = sum + i;
+            console.log(sum)
+        }
+        document.write("1~10 합 : " +sum);
+
+        for(let j = 7 ; j >0 ; j--){
+            console.log("j : ", j );
+            document.write(`<h${j}>연습</h${j}>`)
+        }
+
+    </script>
+
+</head>
+<body>
+    <div id = "div1"></div>
+    <script>
+        let msg = "";
+        for(let j = 1 ; j <=7 ; j += 2){
+            msg = `<h${j}> ${j}.출력 </h${j}>`;
+        }
+        document.getElementById("div1").innerHTML = msg;
+    </script>
+    
+</body>
+</html>

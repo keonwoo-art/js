@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz06.js</title>
+
+    <script>
+        let id, pwd1, pwd2, name, msg, msg2
+
+        function init(){
+            id = document.getElementById("id")
+            pwd1 = document.getElementById("pwd1")
+            pwd2 = document.getElementById("pwd2")
+            name = document.getElementById("name")
+            msg = document.getElementById("msg")
+            msg2 = document.getElementById("msg2")
+        }
+
+        function btn() {
+            if(id.value == ""){
+                id.focus()
+                msg.innerHTML = "id 필수 항목"
+            }else if(pwd1.value ==""){
+                pwd1.focus()
+                msg.innerHTML = "pwd 필수 항목"
+            }else if(pwd2.value ==""){
+                pwd2.focus()
+                msg.innerHTML = "pwd_check 필수 항목"
+            }else if(name.value == ""){
+                name.focus()
+                msg.innerHTML = "이름 필수 항목"
+            }else{
+                msg2.innerHTML = `입력 데이터 <br>
+                id : <b> ${id.value} <b> <br>
+                pwd : <b>${pwd1.value}<b> <br>
+                pwd_check : <b>${pwd2.value}<b> <br>
+                name : <b>${name.value}<b>`
+            }
+        }
+
+    </script>
+
+
+</head>
+
+<body onload="init()">
+    <input type="text" placeholder="id 입력" id = "id" > <br>
+    <input type="text" placeholder="비밀번호 입력" id="pwd1" ><br>
+    <input type="text" placeholder="비밀번호 확인" id = "pwd2"><br>
+    <input type="text" placeholder="이름 입력" id = "name" ><br>
+    <div id = "msg"></div>
+    <button onclick="btn()">가입</button>
+    <div id = "msg2"></div>
+    
+</body>
+</html>
