@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex15.js</title>
+    <script>
+        let i = 0, sum = 0, evenSum = 0, oddSum = 0;
+        for(i = 1; i <= 10; i ++){
+            //console.log(i);
+            sum = sum + i
+            if(i % 2 == 0){
+                //console.log(i)
+                evenSum += i;
+            }else{
+                oddSum = oddSum + i;
+            }
+        }
+        console.log("1~10 총합 : ", sum )
+        console.log("1~10 짝합 : ", evenSum )
+        console.log("1~10 홀합 : ", oddSum )
+
+        //function over(div){}
+        const over = (div) => {
+            div.innerHTML = "마우스 over"
+        }
+        const out = (div) => {
+            div.innerHTML = "마우스 out "
+        }
+        
+        let tag;
+        window.onload = () => {
+            //alert("실행??")
+            tag = document.getElementById("div1")
+            console.log(tag)
+            tag.addEventListener("mouseup", up);
+            tag.addEventListener("mousedown", down);
+        }
+        
+        const up = () => {
+            tag.innerHTML = "up";
+            tag.removeAttribute("style")
+        }
+        const down = () => {
+            tag.innerHTML = "down"
+            tag.setAttribute("style", "color : red;")
+            tag.style.backgroundColor ="yellow";
+        }
+
+    </script>
+</head>
+<body>
+    <div id = "div1">클릭 이벤트</div>
+    <div onmouseover="over(this)"  onmouseout="out(this)" >mouse</div>
+    
+</body>
+</html>

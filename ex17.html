@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex17.js</title>
+    <script>
+        const test1 = () => {
+        const num = 100;
+        console.log(num);
+        
+        const num1 = ["100", 100, "값", 1.111];
+       /* console.log(num1)
+        console.log ( num1 [0])
+        console.log ( num1 [1])
+        num1 [0] = "다른 값"
+        console.log ( num1 [0])
+        console.log ( num1 [3])
+        console.log(num1.length)
+        console.log(num1) */
+
+        for(let i = 0 ; i< num1.length ; i++){
+            //console.log("i : ", i)
+            console.log( `num1 ${i} : ${num1[i]}`)
+        }
+        }
+
+        const test2 = () => {
+            const arr = ["내용1", "내용2", "내용3"];
+            const str1 = arr.join() 
+            console.log("배열 type : ", typeof arr );
+            console.log("str1 type : ", typeof str1 );
+            console.log("배열 : ", arr );
+            console.log("str1 : ",  str1 );
+
+            console.log("배열[0] : ", arr[0]);
+            console.log("str1[3] : ", str1[3]);
+
+            const str2 = arr.join("안녕");
+            console.log("str2 : ", str2);
+
+        }
+
+        const test3 = () => {
+            let arr = [111, 222, 333]
+            console.log( `기본 배열 :  ${arr}`)
+            arr[ arr.length ] = "값 추가"
+            console.log( `기본 배열 :  ${arr}`)
+            arr.push("값1", "값2")
+            console.log( `기본 배열 :  ${arr}`)
+
+            arr.pop()
+            console.log( `기본 배열 :  ${arr}`)
+
+            arr.unshift("v1", "v2")
+            console.log( `기본 배열 :  ${arr}`)
+            arr.shift()
+            console.log( `기본 배열 :  ${arr}`)
+            arr.shift()
+            console.log( `기본 배열 :  ${arr}`)
+
+            const arr2 = ["aaa", "bbb"]
+            const result = arr.concat(arr2)
+            console.log( `concat result : ${result}`)
+            arr.push(arr2) // = arr.concat(arr2) -> 둘의 차이 = concat은 새로운 변수에 저장해야하는 것. push는 자기 자신이 바뀌는 것
+            console.log(`concat : ${arr}`)
+
+
+        }
+
+        const test4 = () => {
+            const arr = [111, 222, 333]
+            arr.forEach( printArr)
+        }
+        function printArr(item, index){
+            console.log(`데이터 ${index} : ${item}`)
+        }
+
+        const test5 = () => {
+            const arr = [111, 222, 333]
+            const newArr = arr.map(mapTest)
+            console.log (newArr)
+
+            const newArr2 = arr.map(
+                ( v ) => {
+                    return v * 100;
+                }
+            );
+            console.log(newArr2)
+        }
+        function mapTest(value){
+            return value * 10;
+        }
+
+
+
+        
+
+
+    </script>
+</head>
+<body onload="test5()">
+    
+</body>
+</html>
