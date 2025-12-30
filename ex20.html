@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       let userInfo = [
+            {name : "홍길동" , age : 20}
+        ]
+        function test(){
+            console.log("기본 데이터 : ", userInfo)
+            const form = document.getElementById("form_id")
+            const formData = new FormData(form)
+            console.log(formData)
+            const data = Object.fromEntries(formData)
+            userInfo.push(data)
+            console.log("추가 후 데이터 : ", userInfo)
+        }
+
+        const test1 = () => {
+            console.log("기본 데이터 : ", userInfo)
+            const form = document.getElementById("form_id")
+            const formData = new FormData(form)
+            const data = Object.fromEntries(formData)
+
+            userInfo = userInfo.map( (user) => {
+                if (user.name === data.name){
+                    return {...user, age : data.age}
+                }
+                return user;
+            })
+            console.log("수정 후 데이터 : ", userInfo)
+        
+        }
+
+    </script>
+    <form id = "form_id">
+        <input type = "text" name="name" id="aa"><br>
+        <input type = "text" name="age"><br>
+        <input type ="button" onclick = "test()" value = "회원가입">
+        <input type ="button" onclick = "test1()" value = "수정">
+
+    </form>
+
+
+</body>
+</html>

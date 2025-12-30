@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz12.js</title>
+    <script>
+        let userInfo = [
+            {id : 'aaa', name : '홍길동', age : 20},
+            {id : 'bbb', name : '김개똥', age : 30},
+            {id : 'ccc', name : '고길동', age : 40}
+        ]
+
+         const showDetail = (userID) => {
+                let screen = document.getElementById("screen")
+                const user = userInfo.find(u => u.name === userID)
+                if(user){
+                    screen.innerHTML = `<table>
+                <thead>
+                    <tr>
+                         <td>ID : ${user.id}</td>
+                    </tr>
+                    <tr>
+                        <td>이름 : ${user.name}</td>
+                    </tr>
+                    <tr>
+                        <td>${user.age}</td>
+                    </tr
+                <thead>
+                </table>
+                <br>
+                <button onclick="look()">돌아가기</button>`
+                }
+            }
+
+        const look = () => {       
+            let screen = document.getElementById("screen")
+            let table1 = `<table border = 1>
+                <thead>
+                    <tr>
+                        <th>아이디</th><th>이름</th><th>나이</th>
+                    </tr>
+                <thead>
+                <tbody>`
+                
+            for(let u of userInfo){
+                table1 += `<tr>
+                            <td>${u.id}</td><td onclick="showDetail('${u.name}')">${u.name}</td><td>나이 : ${u.age}</td>
+                        </tr>`
+            }
+            
+            screen.innerHTML = table1 + `</tbody> </table>`
+            
+        }
+
+        const search = () => {
+            let screen = document.getElementById("screen")
+            let userID = document.getElementById("search").value
+            
+            let found = false;
+            let table2 = `<table border = 1>
+                <thead>
+                    <tr>
+                        <th>아이디</th><th>이름</th><th>나이</th>
+                    </tr>
+                <thead>
+                <tbody>`
+
+            for(let u of userInfo){
+                 if(u.id === userID){
+                table2 += `<tr>
+                            <td>${u.id}</td><td>${u.name}</td><td>${u.age}</td>
+                        </tr>`
+                found = true;
+                break;
+            }
+            }
+
+            if(!found){
+                screen.innerHTML = "해당 아이디의 회원이 없습니다.";
+            }else{
+                screen.innerHTML = table2 + `</tbody> </table>`
+        }
+    }
+
+     const del = () => {
+            let screen = document.getElementById("screen")
+            let del = document.getElementById("del")
+           
+            const beforeCount = userInfo.length;
+            userInfo = userInfo.filter(u => u.id !== del.value)
+            const afterCount = userInfo.length;
+
+            if(beforeCount === afterCount){
+                alert("삭제할 아이디가 존재하지 않습니다.")
+            }else{
+                alert("삭제가 완료되었습니다")
+            }
+
+            look();
+    }
+
+    
+            
+        
+    </script>
+
+</head>
+<body>
+    <div id = "screen">목록을 보여 줍니다</div>
+    <hr>
+    <button onclick = "look()">모든 회원 보기</button><hr>
+    <input type = "text" placeholder="input id" id = "search"><br>
+    <button onclick = "search()">특정 회원 조회</button><hr>
+    <input type = "text" placeholder="input id" id = "del"><br>
+    <button onclick ="del()">특정 회원 삭제</button>
+    
+</body>
+</html>
